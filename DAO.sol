@@ -71,6 +71,10 @@ contract Dao{
         AvailableFunds-=shares;
         payable(msg.sender).transfer(shares);
     }
+    
+    function showInvestorsList() public view returns(address[] memory){
+        return InvestorsList;
+    }
 
     function transferShare(uint amount, address to) public onlyInvestor(){
         require(numOFshares[msg.sender]>=amount,"You don't have enough shares");
